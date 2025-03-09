@@ -2,8 +2,8 @@
 
 export default function Home() {
   return (
-    <div>
-      VKP
+    <div className="text-gray-500">
+      vkp
     </div>
   );
 }
