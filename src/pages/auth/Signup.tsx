@@ -5,10 +5,14 @@ import { Separator } from "@/components/ui/separator";
 import { SignupSchema, SignupSchemaType } from "@/types/signupSchema"; 
 import { Loader2, LockKeyhole, UserPen, MailPlus } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 type Props = {};
 
 function Signup({}: Props) {
+    const navigate = useNavigate();
+
   let [data, setData] = useState<SignupSchemaType>({
     firstName: "",
     lastName: "",
@@ -23,7 +27,7 @@ function Signup({}: Props) {
     setData({ ...data, [name]: value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const result = SignupSchema.safeParse(data);
     if (!result.success) {
@@ -32,10 +36,23 @@ function Signup({}: Props) {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      console.log("data: ", data);
-      setLoading(false);
-    }, 3000);
+
+    try{
+        const url = import.meta.env.VITE_BACKEND_URL!+"/user/signup";
+        const response = await axios.post(url, {
+            name: data.firstName + " " + data.lastName,
+            email: data.email,
+            password: data.password
+        },);
+
+        setLoading(false);
+        console.log("response: ",response);
+        if(response.data.success){
+            navigate('/verifyEmail');
+        }
+    } catch(err){
+        console.log("couldn't sign up, error: ",err);
+    }
   };
 
   return (
