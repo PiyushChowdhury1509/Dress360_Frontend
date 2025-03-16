@@ -67,16 +67,16 @@ function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <form onSubmit={submitHandler} className="px-8 border border-b-2 border-gray-900 rounded-lg shadow-xl">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <form onSubmit={submitHandler} className="px-8 border-4 border-gray-900 rounded-lg shadow-xl min-w-lg min-h-lg">
         <div className="m-4 my-7">
-          <div className="mb-6">
-            <div className="mb-2">
-              <h1 className="font-bold text-blue-600 mb-3 text-4xl">
+          <div className="space-y-14">
+            <div className="mb-7">
+              <h1 className="font-bold text-orange-600 mb-3 text-4xl text-center">
                 Sign In
               </h1>
             </div>
-            <div className="mb-3">
+            <div className="mb-5">
               <Label className="mb-2">Email</Label>
               <div className="relative">
                 <Input
@@ -91,7 +91,7 @@ function LoginPage() {
               </div>
               { error.email && <span className="text-sm text-red-700">{error.email}</span>}
             </div>
-            <div className="mb-3">
+            <div className="mb-5">
               <Label className="mb-2">Password</Label>
               <div className="relative">
                 <Input
@@ -108,16 +108,16 @@ function LoginPage() {
             </div>
           </div>
           <Separator />
-          <div className="mt-3">
-            { loading ? (<Button disabled className="bg-blue-400 text-white mb-2 w-full border-2 cursor-not-allowed">
+          <div className="mt-5">
+            { loading ? (<Button disabled className="bg-orange-400 text-white mb-2 w-full border-2 cursor-not-allowed">
               <Loader2 className="h-14 w-14 animate-spin mr-2"/>
               signing in...
-            </Button>) : (<Button type="submit" className="bg-blue-700 text-white mb-2 w-full hover:text-blue-700 hover:bg-gray-100 hover:border-blue-700 border-2 cursor-pointer">
+            </Button>) : (<Button type="submit" className="bg-orange-600 text-white mb-2 w-full hover:text-orange-700 hover:bg-gray-100 hover:border-orange-700 border-2 cursor-pointer">
               Sign In
             </Button>)}
             <p>
               Don't have an account?{" "}
-              <Link to={"/signup"} className="text-blue-600 cursor-pointer hover:underline">Create an account</Link>
+              <Link to={"/signup"} className="text-orange-600 cursor-pointer hover:underline">Create an account</Link>
             </p>
           </div>
         </div>
