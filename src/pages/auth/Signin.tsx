@@ -8,6 +8,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { signinSchemaType, signinSchema } from "@/types/signinSchema";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
 function LoginPage() {
 
@@ -39,19 +40,29 @@ function LoginPage() {
     setLoading(true);
     try{
       const url = import.meta.env.VITE_BACKEND_URL;
-      const result = await axios.post(url+"/user/signin", {
+      const response = axios.post(url+"/user/signin", {
         email: parseResult.data.email,
         password: parseResult.data.password
       });
 
-      setLoading((prev)=>!prev);
+      toast.promise(response, {
+        pending: "signing in",
+        success: "sign in successfull",
+        error: "wrong credentials"
+      })
+
+      setLoading(false);
+      const result = await response;
 
       if(!result.data.success){
         console.log(result.data);
       }
-      else navigate('/verifyEmail');
+      else{
+        setTimeout(()=>navigate('/verifyEmail'),1000);
+      }
     } catch(err){
       console.log("couldn't signin, error: ",err);
+      setLoading(false);
     }
   }
 
@@ -111,6 +122,18 @@ function LoginPage() {
           </div>
         </div>
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
