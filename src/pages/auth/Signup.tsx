@@ -7,6 +7,7 @@ import { Loader2, LockKeyhole, UserPen, MailPlus } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import { Bounce, ToastContainer,toast } from "react-toastify";
 
 type Props = {};
 
@@ -39,16 +40,21 @@ function Signup({}: Props) {
 
     try{
         const url = import.meta.env.VITE_BACKEND_URL!+"/user/signup";
-        const response = await axios.post(url, {
+        const response = axios.post(url, {
             name: data.firstName + " " + data.lastName,
             email: data.email,
             password: data.password
         },);
 
         setLoading(false);
-        console.log("response: ",response);
-        if(response.data.success){
-            navigate('/verifyEmail');
+        toast.promise(response,{
+          pending: "signing up",
+          success: "successfully signed up",
+          error: "invalid credentials"
+        }, { transition: Bounce })
+        const result = await response;
+        if(result.data.success){
+            setTimeout(()=>navigate('/verifyEmail'),1700);
         }
     } catch(err){
         console.log("couldn't sign up, error: ",err);
@@ -170,6 +176,18 @@ function Signup({}: Props) {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
