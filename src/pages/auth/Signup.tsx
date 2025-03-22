@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { SignupSchema, SignupSchemaType } from "@/types/signupSchema"; 
 import { Loader2, LockKeyhole, UserPen, MailPlus } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { Bounce, ToastContainer,toast } from "react-toastify";
 
@@ -172,7 +172,7 @@ function Signup({}: Props) {
               </div>
             </form>
             <Separator className="my-6 text-gray-800" />
-            <h1 className="text-center">Already have an account? <span className="text-blue-600 hover:text-blue-700 hover:underline cursor-pointer">Login</span></h1>
+            <h1 className="text-center">Already have an account? <Link to="/login" className="text-blue-600 hover:text-blue-700 hover:underline cursor-pointer">Login</Link></h1>
           </div>
         </div>
       </div>
