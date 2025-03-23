@@ -39,7 +39,7 @@ function Signup({}: Props) {
     setLoading(true);
 
     try{
-        const url = import.meta.env.VITE_BACKEND_URL!+"/user/signup";
+        const url = import.meta.env.VITE_BACKEND_URL!+"/api/v1/user/signup";
         const response = axios.post(url, {
             name: data.firstName + " " + data.lastName,
             email: data.email,
