@@ -57,6 +57,7 @@ function Signup({}: Props) {
             setTimeout(()=>navigate('/verifyEmail'),1700);
         }
     } catch(err){
+        setLoading(false);
         console.log("couldn't sign up, error: ",err);
     }
   };

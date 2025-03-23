@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/auth/Signin";
 import VerifyEmail from './pages/auth/VerifyEmail';
 import Signup from './pages/auth/Signup';
+import SendVerifyOtp from './pages/auth/SendVerifyOtp';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage/>
+  },
+  {
+    path: "/sendVerifyOtp",
+    element: <SendVerifyOtp/>
   },
   {
     path: "/verifyEmail",
