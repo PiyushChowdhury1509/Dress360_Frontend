@@ -11,7 +11,9 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+    
     <div className="font-serif">
+     
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-transparent backdrop-blur-md z-50 shadow-md">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center h-16">
@@ -21,12 +23,12 @@ export default function Home() {
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 text-lg font-medium text-gray-800">
             <li><a href="#" className="hover:text-teal-500 transition">Home</a></li>
+            <li><Link to="/getstyle" className="hover:text-teal-500 transition">Get Style </Link></li>
+
             <li><a href="#" className="hover:text-teal-500 transition">Men</a></li>
             <li><a href="#" className="hover:text-teal-500 transition">Women</a></li>
-            <li><a href="#" className="hover:text-teal-500 transition">Images</a></li>
             <li><a href="#" className="hover:text-teal-500 transition">Blog</a></li>
             <li><Link to="/privacyPolicy" className="hover:text-teal-500 transition">Privacy Policy</Link></li>
-            <li><Link to="/getstyle" className="hover:text-teal-500 transition">Get Style </Link></li>
 
           </ul>
 
@@ -47,7 +49,6 @@ export default function Home() {
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">Home</a>
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">Men</a>
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">Women</a>
-            <a href="#" className="block text-lg text-gray-800 hover:text-teal-500"></a>
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">Images</a>
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">Blog</a>
             <a href="#" className="block text-lg text-gray-800 hover:text-teal-500">About</a>
@@ -60,8 +61,12 @@ export default function Home() {
       </nav>
 
       {/* Body */}
-      <div className="body w-full h-screen flex flex-col justify-center items-center text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-semibold text-gray-800">
+      {/* <img className=" w-full  bg-center bg-cover" src="https://plus.unsplash.com/premium_photo-1687294575546-b9fa61e2e58f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D " alt="" /> */}
+      <div
+       className="min-h-screen bg-screen bg-cover" style={{backgroundImage: `url("https://plus.unsplash.com/premium_photo-1687294575546-b9fa61e2e58f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`}}
+      >
+         <div className="body w-full h-screen flex flex-col justify-center items-center text-center px-6">
+        <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 font-serif">
           Discover Your Perfect Style with Dress360
         </h2>
 
@@ -71,6 +76,9 @@ export default function Home() {
           </Button>
         </div> */}
       </div>
+
+      </div>
+     
     </div>
   );
 }
