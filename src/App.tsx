@@ -3,33 +3,26 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/auth/Signin";
 import VerifyEmail from './pages/auth/VerifyEmail';
 import Signup from './pages/auth/Signup';
-import Getstyle from './pages/getstyle';
-import Home from './pages/rand';
-import { PrivacyPolicy } from './pages/misc/privacy_policy';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
-  },
-  {
-    path: "/privacyPolicy",
-    element: <PrivacyPolicy/>
-  },
-  {
-    path: "/getstyle",
-    element: <Getstyle/>
+    element: <h1 className='text-blue-600'>Hello</h1>
   },
   {
     path: "/login",
     element: <LoginPage/>
   },
   {
+    path: "/sendVerifyOtp",
+    element: <SendVerifyOtp/>
+  },
+  {
     path: "/verifyEmail",
     element: <VerifyEmail/>
   },
   {
-    path: "signup",
+    path: "/signup",
     element: <Signup/>
   }
 ])

@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { SignupSchema, SignupSchemaType } from "@/types/signupSchema"; 
 import { Loader2, LockKeyhole, UserPen, MailPlus } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { Bounce, ToastContainer,toast } from "react-toastify";
 
@@ -39,7 +39,7 @@ function Signup({}: Props) {
     setLoading(true);
 
     try{
-        const url = import.meta.env.VITE_BACKEND_URL!+"/user/signup";
+        const url = import.meta.env.VITE_BACKEND_URL!+"/api/v1/user/signup";
         const response = axios.post(url, {
             name: data.firstName + " " + data.lastName,
             email: data.email,
@@ -57,6 +57,7 @@ function Signup({}: Props) {
             setTimeout(()=>navigate('/verifyEmail'),1700);
         }
     } catch(err){
+        setLoading(false);
         console.log("couldn't sign up, error: ",err);
     }
   };
@@ -172,7 +173,7 @@ function Signup({}: Props) {
               </div>
             </form>
             <Separator className="my-6 text-gray-800" />
-            <h1 className="text-center">Already have an account? <span className="text-blue-600 hover:text-blue-700 hover:underline cursor-pointer">Login</span></h1>
+            <h1 className="text-center">Already have an account? <Link to="/login" className="text-blue-600 hover:text-blue-700 hover:underline cursor-pointer">Login</Link></h1>
           </div>
         </div>
       </div>

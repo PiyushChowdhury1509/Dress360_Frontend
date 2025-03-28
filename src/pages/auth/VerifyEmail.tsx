@@ -14,7 +14,7 @@ function VerifyEmail() {
       <div className="bg-gray-100 min-w-xl min-h-lg shadow-lg space-y-5">
         <div className="p-6">
           <div className="flex justify-center">
-            <img src="/mail_svg.svg" className="h-28 w-28" />
+            <img src="/verifyOtp.svg" className="h-44 w-44" />
           </div>
           <div className="text-center mb-6">
             <h1 className="font-bold text-2xl mb-3">Enter Verification Code</h1>

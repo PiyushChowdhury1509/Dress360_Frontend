@@ -8,7 +8,7 @@ export function PrivacyPolicy() {
                 <div className="content p-4 space-y-4">
                     <div>
                         <p className="text-gray-700">
-                            <strong>Last Updated:</strong> [Insert Date]
+                            <strong>Last Updated:</strong> [26-03-2025]]
                         </p>
                         <p className="mt-2 text-gray-700">
                             Welcome to Dress360! We are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, store, and protect your information when you use our website and services.
