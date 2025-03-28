@@ -4,11 +4,12 @@ import LoginPage from "./pages/auth/Signin";
 import VerifyEmail from './pages/auth/VerifyEmail';
 import Signup from './pages/auth/Signup';
 import SendVerifyOtp from './pages/auth/SendVerifyOtp';
+import { HomePage } from './pages/homePage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1 className='text-blue-600'>Hello</h1>
+    element: <HomePage/>
   },
   {
     path: "/login",
